@@ -16,8 +16,8 @@
     "reactstrap": "^5.0.0-alpha.4"
   },
   "scripts": {
-    "start": "cross-env REACT_APP_CLUSTER_NAME=breathtakingly54 react-scripts start",
-    "build": "cross-env REACT_APP_CLUSTER_NAME=breathtakingly54 react-scripts build",
+    "start": "REACT_APP_CLUSTER_NAME=breathtakingly54 react-scripts start",
+    "build": "REACT_APP_CLUSTER_NAME=breathtakingly54 react-scripts build",
     "test": "react-scripts test --env=jsdom",
     "eject": "react-scripts eject"
   }
