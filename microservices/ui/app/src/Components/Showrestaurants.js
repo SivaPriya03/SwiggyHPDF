@@ -146,7 +146,7 @@ class Showrestaurants extends Component{
 					<div className={classes.text} style={{backgroundColor:'#fff',position:"fixed",width:'100%',display:"flex"}}>
 						 <div style={{backgroundColor:'white',width:'20%'}}>
 						 </div>
-						 <label className={classes.text} style={{color:"#6e6e6e",fontWeight:"700",fontSize:"12px",marginTop:"5.5em"}}> 
+						 <label className={classes.text} style={{color:"#6e6e6e",fontWeight:"700",fontSize:"12px",marginTop:"4em"}}> 
 						 	Change location
 						 </label>
 						<form  autoComplete="off">
@@ -154,7 +154,7 @@ class Showrestaurants extends Component{
 						          <Select className="locationInput"
 						          	 value={this.state.location}
 						          	 onChange={event => this.handleChange(event)}
-						          	 style={{fontFamily: "\"Segoe UI\",  \"Arial\", sans-serif",fontWeight:"500",color:"black"}}
+						          	 style={{marginTop:'1em',fontFamily: "\"Segoe UI\",  \"Arial\", sans-serif",fontWeight:"500",color:"black"}}
 						            input={<Input name="Location" classes={{inkbar:classes.inputInkbar}}   
 						            					placeholder="Enter Delivery Location" id="locationInputId" />}
 						          >	
@@ -171,7 +171,7 @@ class Showrestaurants extends Component{
 						          				If your location is unavailable please select your nearest city</FormHelperText>
 						        	
 						          </FormControl>
-						          <Button raised  style={{width:'15em',color:orderedItems?'white':'black',backgroundColor:orderedItems?'#69bb27':'default',left:'50%',marginTop:'3em'}}>
+						          <Button variant="raised"  style={{marginBottom:'2em',width:'15em',color:orderedItems?'white':'black',backgroundColor:orderedItems?'#69bb27':'default',left:'50%',marginTop:'3em'}}>
 						          		Your cart
 						          		<Badge classes={{
 						          			badge:classes.badge,

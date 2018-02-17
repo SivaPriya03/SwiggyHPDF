@@ -101,7 +101,7 @@ class Welcome extends Component{
 					</div>
 
 				<Grid item xs={2}>
-				  	<Button raised  className={classes.text} onClick={this.handleShowClick}
+				  	<Button variant="raised"  className={classes.text} onClick={this.handleShowClick}
 				  		style={{backgroundColor:"#fc8019",color:"white",fontSize:"12px",width:"80%",left:"245%"}}>
 				  	 	{this.state.showloading ?<i className="fa fa-spinner fa-spin"></i>: "SHOW RESTAURANTS"}
 				    </Button>

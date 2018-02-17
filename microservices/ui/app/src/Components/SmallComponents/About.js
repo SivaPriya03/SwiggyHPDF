@@ -1,7 +1,6 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 import { withStyles } from 'material-ui/styles';
-import List, { ListItem} from 'material-ui/List';
 import 'font-awesome/css/font-awesome.min.css'
 
 const styles = theme => ({
@@ -11,14 +10,6 @@ const styles = theme => ({
     paddingTop:'1em',
     textAlign:'center',
     backgroundColor: theme.palette.background.paper,
-  },
-  avatar:{
-    width:60,
-    height:60,
-    backgroundColor:'#fff',
-    color:'#6E6E6E',
-    border:'1px solid #6E6E6E',
-    borderRadius:'50px',
   },
   text:{
     fontFamily: "\"Segoe UI\",  \"Arial\", sans-serif",
@@ -77,37 +68,38 @@ const styles = theme => ({
 });
 const list={
   display:'inline-block',
+  padding:'0.5em',
 }
 function About(props) {
   const { classes } = props;
   return (
-    <List className={classes.root}>
-      <ListItem style={list}>
+    <div className={classes.root}>
+      <div style={list}>
         <a href="https://www.facebook.com/swiggy.in" className={classes.iconFb}>
             <i className="fa fa-facebook">
             </i>
         </a>
-      </ListItem>
-      <ListItem style={list} >
+      </div>
+      <div style={list} >
         <a href="http://pinterest.com/swiggyindia" className={classes.iconPin}>
             <i className="fa fa-pinterest-p">
             </i>
         </a>
-      </ListItem>
-      <ListItem style={list} >
+      </div>
+      <div style={list} >
         <a href="https://instagram.com/swiggyindia/" className={classes.iconInsta}>
             <i className="fa fa-instagram">
             </i>
         </a>
-      </ListItem>
-        <ListItem style={list} >
+      </div>
+        <div style={list} >
         <a href="https://twitter.com/swiggy_in" className={classes.iconTwitter}>
             <i className="fa fa-twitter">
             </i>
         </a>
-      </ListItem>
+      </div>
       
-    </List>
+    </div>
   );
 }
 

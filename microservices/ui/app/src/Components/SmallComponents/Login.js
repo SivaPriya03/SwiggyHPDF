@@ -191,19 +191,19 @@ class Login extends Component{
 							</Grid>
 							<Grid item xs={4}/>
 							<Grid item xs={1} style={{display:this.state.hireBlock?'block':'none'}}>
-							  	<Typography type="caption"    style={{marginTop:"0.9em",cursor:"pointer",color:"#f5861f",aliginItems:"center"}}>
+							  	<Typography variant="caption"    style={{marginTop:"0.9em",cursor:"pointer",color:"#f5861f",aliginItems:"center"}}>
 							  			 We are Hiring
 							  	</Typography>
 							</Grid>
 							<Grid item xs={1} style={{display:this.state.hireBlock?'none':'block',marginTop:'0.5em'}}>
-							  	<Typography type="caption"     style={{marginTop:"0.9em",cursor:"pointer",color:"#f5861f",aliginItems:"center"}}>
+							  	<Typography variant="caption"     style={{marginTop:"0.9em",cursor:"pointer",color:"#f5861f",aliginItems:"center"}}>
 							  			 <a href="https:www.swiggy.com/support">
 							  			 	Help & Support
 							  			 </a>
 							  	</Typography>
 							</Grid>
 							<Grid item xs={1} style={{marginTop:this.state.hireBlock?'0em':'0.5em'}} >
-							  	<Typography type="caption"   style={{marginTop:"0.8em",color:"#1a1a1a"}}>
+							  	<Typography variant="caption"   style={{marginTop:"0.8em",color:"#1a1a1a"}}>
 							  		Get app:<a href="https://play.google.com/store/apps/details?id=in.swiggy.android&referrer=utm_source%3Dswiggy%26utm_medium%3Dheader">
 							  					<i className="fa fa-android" 
 							  							style={{paddingLeft:"0.8em",fontSize:"1.4em",color:"black"}}>
@@ -219,7 +219,7 @@ class Login extends Component{
 							  	</Typography>
 							</Grid>
 							<Grid item xs={1} style={{display:this.state.userGrid}}>
-							 	<Typography type="caption"    style={{textAlign:'center',textTransform:"capitalize",marginTop:"0.9em",cursor:"pointer",alignItems:"center"}}>
+							 	<Typography variant="caption"    style={{textAlign:'center',textTransform:"capitalize",marginTop:"0.9em",cursor:"pointer",alignItems:"center"}}>
 							  			<a href="/account"> {this.state.signInuserName}</a>
 							  	</Typography>
 							</Grid>
@@ -235,7 +235,7 @@ class Login extends Component{
 						    <Dialog
 						          open={this.state.loginModalOpen}
 						          onClose={this.handleClose}
-						          style={{height:"12em",marginTop:"12em"}}
+						          style={{height:"12em",marginTop:"13em"}}
 						          
 						          aria-labelledby="form-dialog-title"
 						        >
@@ -276,7 +276,7 @@ class Login extends Component{
 									        }}
 									         onChange={event=>this.onInputValue(event,'password')}
 									       value={this.state.password}
-									        type="password"
+									        variant="password"
 									        InputLabelProps={{
 									          shrink: true,
 									          className: classes.textFieldFormLabel,
@@ -285,8 +285,8 @@ class Login extends Component{
 
 						          </DialogContent>
 						          <DialogActions>	
-							          <Button raised   
-										  	style={{backgroundColor:"#69bb27",color:"white",fontSize:"12px",width:"409%",right:"21.1em"}}>
+							          <Button variant="raised"   
+										  	style={{backgroundColor:"#69bb27",color:"white",fontSize:"12px",width:'23em',right:'3.7em'}}>
 										  		Login
 									  </Button>
 						          </DialogActions>
@@ -345,7 +345,7 @@ class Login extends Component{
 						            <TextField
 						            		required
 									        label="Email"
-									        type="email"
+									        variant="email"
 									        InputProps={{
 									          disableUnderline: true,
 									          classes: {
@@ -392,7 +392,7 @@ class Login extends Component{
 									       onChange={event=>this.onInputValue(event,'password')}
 									       value={this.state.password}
 
-									        type="password"
+									        variant="password"
 									        InputLabelProps={{
 									          shrink: true,
 									          className: classes.textFieldFormLabel,
@@ -415,8 +415,8 @@ class Login extends Component{
 							        </div>
 						          </DialogContent>
 						          <DialogActions style={{marginTop:'-1em'}}>	
-							          <Button raised   
-										  	style={{textTransform:'capitalize',backgroundColor:"#69bb27",color:"white",fontSize:"12px",width:"150%",right:"9.7em"}}>
+							          <Button variant="raised"   
+										  	style={{textTransform:'capitalize',backgroundColor:"#69bb27",color:"white",fontSize:"12px",width:'23em',right:'2.7em'}}>
 										  		Register & Continue
 									  </Button>
 						          </DialogActions>

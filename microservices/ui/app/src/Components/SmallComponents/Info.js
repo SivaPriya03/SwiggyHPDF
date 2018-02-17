@@ -1,28 +1,20 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 import { withStyles } from 'material-ui/styles';
-import List, { ListItem } from 'material-ui/List';
 import 'font-awesome/css/font-awesome.min.css'
 
 const styles = theme => ({
   root: {
-    width: 'inherit',
+    width: 'minWidth',
     maxWidth: '100%',
     paddingTop:'1em',
+
     marginLeft:'2em',
     listStyleType:'disc',
     backgroundColor: theme.palette.background.paper,
-  },
-  avatar:{
-    width:60,
-    height:60,
-    backgroundColor:'#fff',
-    color:'#6E6E6E',
-    border:'1px solid #6E6E6E',
-    borderRadius:'50px',
+    display:'flex',
   },
   list:{
-    display:'inline-block',
   },
   text:{
     color:'#6E6E6E',
@@ -65,15 +57,15 @@ let i=0;
 function Info(props) {
   const { classes } = props;
   return (
-    <List className={classes.root}>
+    <div className={classes.root}>
       {info.map(infoI=>
-        <ListItem className={classes.list} key={i++}>
+        <div className={classes.list} key={i++}>
         <a href={infoI.link} className={classes.text}>
             {infoI.string}
         </a>&bull;
-      </ListItem>
+      </div>
         )}
-      </List>
+      </div>
   );
 }
 
