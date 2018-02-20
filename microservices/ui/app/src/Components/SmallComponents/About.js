@@ -29,6 +29,7 @@ const styles = theme => ({
     '&:hover':{
         backgroundColor:'#365899',
         border:'none',
+        transform: "scale(1.5)",
     },
   },
   iconPin:{
@@ -40,6 +41,7 @@ const styles = theme => ({
     '&:hover':{
         backgroundColor:'#C92228',
         border:'none',
+        transform: "scale(1.5)",
     },
   },
   iconInsta:{
@@ -51,6 +53,7 @@ const styles = theme => ({
     '&:hover':{
         background:'linear-gradient(45deg, #f09433 0%,#e6683c 25%,#dc2743 50%,#cc2366 75%,#bc1888 100%)',
         border:'none',
+        transform: "scale(1.5)",
     },
   },
   iconTwitter:{
@@ -62,6 +65,7 @@ const styles = theme => ({
     '&:hover':{
         backgroundColor:'#2196f3',
         border:'none',
+        transform: "scale(1.5)",
     },
   },
   

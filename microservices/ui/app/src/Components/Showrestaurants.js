@@ -9,6 +9,7 @@ import Badge from 'material-ui/Badge'
 import { FormControl, FormHelperText } from 'material-ui/Form';
 import Button from 'material-ui/Button'
 import Input from 'material-ui/Input';
+import Info from './SmallComponents/Info.js'
 import ShoppingCart from 'material-ui-icons/ShoppingCart'
 import Login from './SmallComponents/Login'
 import A from '../Resources/A.png'
@@ -17,7 +18,7 @@ import C from '../Resources/C.jpg'
 import D from '../Resources/D.jpg'
 import E from '../Resources/E.png'
 import F from '../Resources/F.jpg'
-
+import Restaurants from './SmallComponents/Restaurants.js'
 var header,sticky,slideIndex;
 const styles= theme=>({
 	text:{
@@ -187,7 +188,7 @@ class Showrestaurants extends Component{
 					</div>
 
 				</Grid>
-				<Grid item xs={12} className="content" style={{zIndex:'3',marginTop:'2em',height:'26em',backgroundColor:'#f5f5f5'}}>
+				<Grid item xs={12} className="content" style={{zIndex:'3',marginTop:'2em',height:'20em',backgroundColor:'#f5f5f5'}}>
 					<div className="slideshow-container">
 
 					{images.map(
@@ -205,9 +206,17 @@ class Showrestaurants extends Component{
 								cursor:'pointer',marginBottom:'',backgroundColor:this.state.activeStyle[images.indexOf(image)]?'#f5861f':'#bbb'}} className={classes.dot}></span> 
 							)}
 					</div>
-				</Grid>
-				<Grid item xs={12} style={{marginTop:'5em',height:'100em',backgroundColor:'red'}}/>
 					
+				</Grid>
+				<Grid item xs={12} style={{height:'auto',minHeight:'15em'}}>
+					<Restaurants/>
+				
+				</Grid>
+				<Grid item xs={12} className="footer" style={{height:'5em'}}>
+					<Info/>
+				
+				</Grid>
+				
 				</Grid>
 									
     );
