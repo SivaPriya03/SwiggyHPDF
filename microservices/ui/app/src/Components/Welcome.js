@@ -29,6 +29,9 @@ const styles= theme=>({
 	      backgroundColor: "#f5861f",
 	    },
 	},
+	iconSelect:{
+		top:'calc(50%-6px)',
+	},
 });
 const locations=['Ahmedabad','Bangalore','Chennai','Delhi','Gurgaon','Hyderabad','Kolkata','Mumbai','Pune',];
 class Welcome extends Component{
@@ -79,10 +82,11 @@ class Welcome extends Component{
 						 <label className={classes.text} style={{color:"white",fontWeight:"600",fontSize:"19px",marginTop:"10px"}}> Select your location</label>
 						<form  autoComplete="off">
 						        <FormControl className={classes.formControl}>
-						          <Select className="locationInput"
+						          <Select classes={{icon:classes.iconSelect}} 
 						          	 value={this.state.location}
 						          	 onChange={event => this.handleChange(event)}
-						          	 style={{fontFamily: "\"Segoe UI\",  \"Arial\", sans-serif",fontWeight:"500",color:"black"}}
+						          	 style={{paddingBottom: '15px',background: '#fff',width: '350px',height: '32px',
+    											border: '0',outline: '0',textOverflow:' ellipsis',borderRadius: '3px 0 0 3px',fontFamily: "\"Segoe UI\",  \"Arial\", sans-serif",fontWeight:"500",color:"black"}}
 						            input={<Input name="Location" classes={{inkbar:classes.inputInkbar}}   
 						            					placeholder="Enter Delivery Location" id="locationInputId" />}
 						          >	

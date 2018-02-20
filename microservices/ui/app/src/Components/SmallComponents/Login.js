@@ -38,7 +38,6 @@ const styles= theme=>({
 	button: {
    	    margin: '8px 0px 0px 4px',
    	    marginLeft:'4em',
-   	    fontSize:'14px',
    	},
    	dialogFooter:{
 		fontFamily: "\"Segoe UI\",  \"Arial\", sans-serif",
@@ -48,7 +47,7 @@ const styles= theme=>({
 		},
 		backgroundColor:"#fffaf1",
 		textAlign:"center",
-		display:"webkit-box",display:"ms-flexbox",display:"flex",
+		display:"flex",
 		'-webkit-box-align':'center',
 		aliginItems:'center',
 		'-webkit-box-pack':'center','-webkit-box-orient':'vertical','-webkit-box-direction':'normal',
@@ -286,7 +285,7 @@ class Login extends Component{
 						          </DialogContent>
 						          <DialogActions>	
 							          <Button variant="raised"   
-										  	style={{backgroundColor:"#69bb27",color:"white",fontSize:"12px",width:'23em',right:'3.7em'}}>
+										  	style={{backgroundColor:"#69bb27",color:"white",fontSize:"12px",width:'23em',right:'7.2em'}}>
 										  		Login
 									  </Button>
 						          </DialogActions>

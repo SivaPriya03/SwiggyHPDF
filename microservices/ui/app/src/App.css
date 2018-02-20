@@ -123,7 +123,7 @@ a{
   color: inherit;
 }
 
-.locationInput{
+#locationInput{
   padding-bottom: 15px;
     background: #fff;
 
@@ -149,7 +149,8 @@ a{
     margin: auto;
     }
     .sticky{
-
+      box-shadow: 1px 36px 51px 8px lightgrey;
+    margin-left: 0em;
     position: fixed;
     top: 0;
     width: 100%;

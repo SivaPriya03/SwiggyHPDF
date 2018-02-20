@@ -52,6 +52,7 @@ class Restaurants extends Component{
 		super(props);
 		this.state={
 			active:Array(5).fill(false),
+			
 		};
 	}
 	componentDidMount(){
@@ -64,12 +65,16 @@ class Restaurants extends Component{
 		actives[i]=true;
 		this.setState({active:actives});
 	}
+	changeListStyle(){
+
+	}
   render() {
   	const classes=this.props.classes;
    	const activeBack={backgroundColor:'#d51e',};
     return (
     		<List>
-		        <ListItem button onClick={()=>this.listChange(0)} style={this.state.active[0]?activeBack:null} > 
+		        <ListItem button onClick={()=>this.listChange(0)} 
+		        		style={this.state.active[0]?activeBack:null} > 
 		          <Avatar className={this.state.active[0]?classes.activeAvatar:classes.avatar}>
 		          	<i className="fa fa-arrow-circle-right"></i>
 		          </Avatar>

@@ -10,16 +10,17 @@ const styles = theme => ({
   {
     width:'75%',
     height:'12.5em',
+    background:'black',
   },
 });
   
 function Loading(props) {
   const { classes } = props;
   return (
-    <div style={{height:'15em',marginLeft:'20em',textAlign:'center'}}> 
+    <div style={{background:'inherit',height:'15em',marginLeft:'20em',textAlign:'center',display:props.display?'block':'none'}}> 
             <Paper elevation={4} className={classes.root}>
               <div style={{height:'1.5em'}}></div>   
-                <Typography variant="headline"component="h3">
+                <Typography variant="headline"component="h3" style={{color:'#fff'}}>
                   Showing Restaurants near you ...
 
                 </Typography>

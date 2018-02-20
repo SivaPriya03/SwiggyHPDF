@@ -8,6 +8,7 @@ import { MenuItem } from 'material-ui/Menu';
 import Badge from 'material-ui/Badge'
 import { FormControl, FormHelperText } from 'material-ui/Form';
 import Button from 'material-ui/Button'
+import Avatar from 'material-ui/Avatar'
 import Input from 'material-ui/Input';
 import Info from './SmallComponents/Info.js'
 import ShoppingCart from 'material-ui-icons/ShoppingCart'
@@ -18,7 +19,9 @@ import C from '../Resources/C.jpg'
 import D from '../Resources/D.jpg'
 import E from '../Resources/E.png'
 import F from '../Resources/F.jpg'
+import Icon from '../Resources/SwiggyIcon.png'
 import Restaurants from './SmallComponents/Restaurants.js'
+import Loading from './SmallComponents/Loading.js'
 var header,sticky,slideIndex;
 const styles= theme=>({
 	text:{
@@ -56,7 +59,12 @@ const styles= theme=>({
 		  margin: '0 2px',
 		  display: 'inline-block',
 		  transition: 'background-color 0.6s ease',
-	}
+	},
+	iconAvatar:{
+		width:'70%',
+		height:'83%',
+		left:'2em',		
+	},
 });
 const locations=['Ahmedabad','Bangalore','Chennai','Delhi','Gurgaon','Hyderabad','Kolkata','Mumbai','Pune',];
 const images=[
@@ -72,6 +80,7 @@ class Showrestaurants extends Component{
 		super(props);
 		this.state={
 			signInuserName:'Siva Priya',
+			loading:true,
 			location:window.location.pathname.split('/').slice(-1)[0],
 			headerIsActive:false,
 			orderedItems:0,
@@ -82,6 +91,7 @@ class Showrestaurants extends Component{
 		this.showSlides = this.showSlides.bind(this);
 		//this.showSlides();
 		setInterval(this.showSlides,4000);
+		setTimeout(()=>this.setState({loading:false}),6000);
 		
 	};
 	componentDidMount(){
@@ -142,17 +152,20 @@ class Showrestaurants extends Component{
       			<Grid item xs={12} style={{zIndex:'2',position:'relative',height:"3.5em",backgroundColor:'#f9f9f9',borderBottom:'1px solid #f5861f',}}>
 					<Login  hire={false}/>
 				</Grid>
-				<Grid item xs={12} id="target"  style={{zIndex:'4',height:"4em",padding:"0px",alignItems:'center',overflow:'hidden',textAlign:'center',justifyContent:'center'}}>
+				<Grid item xs={12} id="target"  style={{zIndex:'4',marginLeft:'0.5em',height:"4em",padding:"0px",alignItems:'center',overflow:'hidden',textAlign:'center',justifyContent:'center'}}>
 					
 					<div className={classes.text} style={{backgroundColor:'#fff',position:"fixed",width:'100%',display:"flex"}}>
-						 <div style={{backgroundColor:'white',width:'20%'}}>
+						 <div style={{backgroundColor:'white',width:'20%',justigyItems:'center',height:'inherit'}}>
+						 	<a href="/">
+						 		<Avatar src={Icon} className={classes.iconAvatar}/>
+						 	</a>
 						 </div>
 						 <label className={classes.text} style={{color:"#6e6e6e",fontWeight:"700",fontSize:"12px",marginTop:"4em"}}> 
 						 	Change location
 						 </label>
 						<form  autoComplete="off">
 						        <FormControl className={classes.formControl}>
-						          <Select className="locationInput"
+						          <Select id="locationInput" 
 						          	 value={this.state.location}
 						          	 onChange={event => this.handleChange(event)}
 						          	 style={{marginTop:'1em',fontFamily: "\"Segoe UI\",  \"Arial\", sans-serif",fontWeight:"500",color:"black"}}
@@ -172,7 +185,7 @@ class Showrestaurants extends Component{
 						          				If your location is unavailable please select your nearest city</FormHelperText>
 						        	
 						          </FormControl>
-						          <Button variant="raised"  style={{marginBottom:'2em',width:'15em',color:orderedItems?'white':'black',backgroundColor:orderedItems?'#69bb27':'default',left:'50%',marginTop:'3em'}}>
+						          <Button variant="raised"  style={{marginBottom:'2em',width:'15em',color:orderedItems?'white':'black',backgroundColor:orderedItems?'#69bb27':'default',left:'90%',marginTop:'3em'}}>
 						          		Your cart
 						          		<Badge classes={{
 						          			badge:classes.badge,
@@ -188,8 +201,9 @@ class Showrestaurants extends Component{
 					</div>
 
 				</Grid>
-				<Grid item xs={12} className="content" style={{zIndex:'3',marginTop:'2em',height:'20em',backgroundColor:'#f5f5f5'}}>
-					<div className="slideshow-container">
+				<Grid item xs={12} className="content" style={{zIndex:'3',marginTop:'2em',height:'20em',backgroundColor:'black'}}>
+					<Loading display={this.state.loading} />
+					<div className="slideshow-container" style={{display:this.state.loading?'none':'block'}}>
 
 					{images.map(
 						image=> 
@@ -200,7 +214,7 @@ class Showrestaurants extends Component{
 								</div>
 							)}
 					</div>
-					<div style={{textAlign:'center'}}>
+					<div style={{textAlign:'center',display:this.state.loading?'none':'block'}}>
 						{images.map(
 							image=> <span key={images.indexOf(image)} style={{
 								cursor:'pointer',marginBottom:'',backgroundColor:this.state.activeStyle[images.indexOf(image)]?'#f5861f':'#bbb'}} className={classes.dot}></span> 
@@ -208,7 +222,7 @@ class Showrestaurants extends Component{
 					</div>
 					
 				</Grid>
-				<Grid item xs={12} style={{height:'auto',minHeight:'15em'}}>
+				<Grid item xs={12} style={{height:'auto',}}>
 					<Restaurants/>
 				
 				</Grid>
