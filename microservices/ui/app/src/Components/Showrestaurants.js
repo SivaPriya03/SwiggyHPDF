@@ -19,8 +19,10 @@ import C from '../Resources/C.jpg'
 import D from '../Resources/D.jpg'
 import E from '../Resources/E.png'
 import F from '../Resources/F.jpg'
-import Icon from '../Resources/SwiggyIcon.png'
+import SwiggyIcon from '../Resources/SwiggyIcon.png'
 import Restaurants from './SmallComponents/Restaurants.js'
+import Cart from './SmallComponents/Cart.js'
+
 import Loading from './SmallComponents/Loading.js'
 var header,sticky,slideIndex;
 const styles= theme=>({
@@ -62,8 +64,9 @@ const styles= theme=>({
 	},
 	iconAvatar:{
 		width:'70%',
-		height:'83%',
-		left:'2em',		
+		height:'121%',
+		left:'2em',
+		transform:'scale(.6)',		
 	},
 });
 const locations=['Ahmedabad','Bangalore','Chennai','Delhi','Gurgaon','Hyderabad','Kolkata','Mumbai','Pune',];
@@ -86,10 +89,12 @@ class Showrestaurants extends Component{
 			orderedItems:0,
 			carouselDisplay:Array(images.length).fill('none'),
 			activeStyle:Array(images.length).fill(false),
+			cartOpen:false,
 		};
 		this.handleChange = this.handleChange.bind(this);
 		this.showSlides = this.showSlides.bind(this);
-		//this.showSlides();
+		this.openCartDialog = this.openCartDialog.bind(this);
+		this.closeCartDialog = this.closeCartDialog.bind(this);
 		setInterval(this.showSlides,4000);
 		setTimeout(()=>this.setState({loading:false}),6000);
 		
@@ -131,6 +136,13 @@ class Showrestaurants extends Component{
 	    header.classList.remove("sticky");
 	  }
 	};
+	openCartDialog(){
+		this.setState({cartOpen:true});
+	}
+	closeCartDialog(){
+		this.setState({cartOpen:false});
+	}
+	
 	handleChange(event){
 		this.setState({
 			location:event.target.value,
@@ -150,14 +162,14 @@ class Showrestaurants extends Component{
   	return (
       		<Grid container className="page" style={{height:"9em",}}>
       			<Grid item xs={12} style={{zIndex:'2',position:'relative',height:"3.5em",backgroundColor:'#f9f9f9',borderBottom:'1px solid #f5861f',}}>
-					<Login  hire={false}/>
+					<Login  Name={"Siva"} hire={false}/>
 				</Grid>
 				<Grid item xs={12} id="target"  style={{zIndex:'4',marginLeft:'0.5em',height:"4em",padding:"0px",alignItems:'center',overflow:'hidden',textAlign:'center',justifyContent:'center'}}>
 					
-					<div className={classes.text} style={{backgroundColor:'#fff',position:"fixed",width:'100%',display:"flex"}}>
-						 <div style={{backgroundColor:'white',width:'20%',justigyItems:'center',height:'inherit'}}>
+					<div className={classes.text} style={{backgroundColor:'#fff',position:"fixed",width:'100%',display:"flex",height:'6em'}}>
+						 <div style={{backgroundColor:'white',width:'20%',justifyItems:'center',height:'inherit',}}>
 						 	<a href="/">
-						 		<Avatar src={Icon} className={classes.iconAvatar}/>
+						 		<Avatar src={SwiggyIcon} className={classes.iconAvatar}/>
 						 	</a>
 						 </div>
 						 <label className={classes.text} style={{color:"#6e6e6e",fontWeight:"700",fontSize:"12px",marginTop:"4em"}}> 
@@ -185,7 +197,8 @@ class Showrestaurants extends Component{
 						          				If your location is unavailable please select your nearest city</FormHelperText>
 						        	
 						          </FormControl>
-						          <Button variant="raised"  style={{marginBottom:'2em',width:'15em',color:orderedItems?'white':'black',backgroundColor:orderedItems?'#69bb27':'default',left:'90%',marginTop:'3em'}}>
+						          <Button variant="raised" onClick={this.openCartDialog}
+						          	 style={{marginBottom:'2em',width:'15em',color:orderedItems?'white':'black',backgroundColor:orderedItems?'#69bb27':'default',left:'90%',marginTop:'3em'}}>
 						          		Your cart
 						          		<Badge classes={{
 						          			badge:classes.badge,
@@ -197,6 +210,7 @@ class Showrestaurants extends Component{
 						          			</Badge>
 						          		
 						          </Button>
+						          <Cart open={this.state.cartOpen} handleOpen={this.openCartDialog} handleClose={this.closeCartDialog}/>
 						</form>
 					</div>
 

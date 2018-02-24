@@ -113,7 +113,7 @@ class Login extends Component{
 	constructor(props){
 		super(props);
 		this.state={
-			signInuserName:props.Name,
+			signInuserName:props.Name?props.Name:'',
 			loginModalOpen:false,
 			userGrid:props.Name&&props.hire?"block":"none",
 			buttonType:props.Name?"Logout":"Login",
@@ -133,11 +133,11 @@ class Login extends Component{
 			
 	}
 	handleClickOpen = () => {
-   	if (this.state.buttonType === 'Login')
+   	if (this.state.buttonType === 'Login'||this.state.signInuserName=== '')
     	this.setState({ loginModalOpen: true });
-    else{
+    else if(this.state.hireBlock){
     	this.setState({ loading:true});
-    	setTimeout(()=> this.setState({ buttonType: 'Login',userGrid:'none', loading:false}),2000);
+    	setTimeout(()=> this.setState({ buttonType: 'Login',userGrid:'none', loading:false,signInuserName:''}),2000);
     }
   };
 
@@ -181,15 +181,16 @@ class Login extends Component{
 	render(){
 		const classes=this.props.classes;
 		return(
-				<Grid container className="navBar" style={{height:"2em",marginTop:this.state.hireBlock?"1.2em":'0'}}>
+				<Grid container className="navBar" style={{height:"2em",marginTop:'0'}}>
 							<Grid item xs={2} />
-							<Grid item xs={1} >
+							<Grid item xs={1} style={{paddingTop:'0'}}>
 							  	<a href="/">
-							  		<img src={Logo} alt="logo" style={{transformOrigin:"0 0",transform:"scale(1.2,1.5)",backgroundSize:"25%",height:"1.5em",backgroundRepeat:"no-repeat",width:"100%"}}/>
+							  		<img src={Logo} alt="logo" style={{transformOrigin: this.state.hireBlock?"0 0":'inherit',
+							  			transform:this.state.hireBlock?"scale(1.2,1.5)":'scale(1,1.8)',backgroundSize:"25%",height:this.state.hireBlock?'4em':"3em",backgroundRepeat:"no-repeat",width:"100%"}}/>
 							  	</a>
 							</Grid>
 							<Grid item xs={4}/>
-							<Grid item xs={1} style={{display:this.state.hireBlock?'block':'none'}}>
+							<Grid item xs={1} style={{display:this.state.hireBlock?'block':'none',marginTop:'1.8em'}}>
 							  	<Typography variant="caption"    style={{marginTop:"0.9em",cursor:"pointer",color:"#f5861f",aliginItems:"center"}}>
 							  			 We are Hiring
 							  	</Typography>
@@ -201,7 +202,7 @@ class Login extends Component{
 							  			 </a>
 							  	</Typography>
 							</Grid>
-							<Grid item xs={1} style={{marginTop:this.state.hireBlock?'0em':'0.5em'}} >
+							<Grid item xs={1} style={{marginTop:this.state.hireBlock?'1.8em':'0.5em'}} >
 							  	<Typography variant="caption"   style={{marginTop:"0.8em",color:"#1a1a1a"}}>
 							  		Get app:<a href="https://play.google.com/store/apps/details?id=in.swiggy.android&referrer=utm_source%3Dswiggy%26utm_medium%3Dheader">
 							  					<i className="fa fa-android" 
@@ -217,18 +218,18 @@ class Login extends Component{
 							  				</a>
 							  	</Typography>
 							</Grid>
-							<Grid item xs={1} style={{display:this.state.userGrid}}>
+							<Grid item xs={1} style={{display:this.state.userGrid,marginTop:'1.8em'}}>
 							 	<Typography variant="caption"    style={{textAlign:'center',textTransform:"capitalize",marginTop:"0.9em",cursor:"pointer",alignItems:"center"}}>
 							  			<a href="/account"> {this.state.signInuserName}</a>
 							  	</Typography>
 							</Grid>
-							<Grid item xs={this.state.hireBlock?1:2} style={{marginLeft:'1.5em',}}>	
+							<Grid item xs={this.state.hireBlock?1:2} style={{marginLeft:'1.5em',marginTop:this.state.hireBlock? '1.8em':'0'}}>	
 							  	<Button className={classes.logBtn} style={{display:this.state.hireBlock?'block':'none'}}
 							  	      onClick={this.handleClickOpen} >
 							  	      	{this.state.loading?<i style= {{fontSize:'14px'}} className="fa fa-spinner fa-spin" aria-hidden="true"></i>:this.state.buttonType}
 						        </Button>
 						    	<Button className={classes.signinBtn} style={{marginTop:'0.3em',height:'1.8em',width:'100%',display:this.state.hireBlock?'none':'block'}}
-							  	      onClick={this.handleClickOpen} >
+							  	       onClick={this.handleClickOpen}>
 							  	      	{ this.state.signInuserName?'Welcome, '+this.state.signInuserName:'SIGN IN / REGISTER'}
 						        </Button>
 						    <Dialog

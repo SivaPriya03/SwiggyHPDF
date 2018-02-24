@@ -4,6 +4,8 @@ import {withStyles} from 'material-ui/styles'
 import List, { ListItem, ListItemText } from 'material-ui/List';
 import Avatar from 'material-ui/Avatar';
 import AccountBalanceWallet from 'material-ui-icons/AccountBalanceWallet';
+import Restaurant from 'material-ui-icons/Restaurant';
+
 import Divider from 'material-ui/Divider';
 
 const styles= theme=>({
@@ -55,7 +57,7 @@ const styles= theme=>({
 	},
 
 });
-class SideBar extends Component{
+class SideTab extends Component{
 	constructor(props){
 		super(props);
 		this.state={
@@ -91,55 +93,59 @@ class SideBar extends Component{
 		        <ListItem button onMouseOver={()=>this.hoveredOn(0)} onMouseOut={()=>this.hoveredOff()} onClick={()=>this.listChange(0)}  
 		        		style={this.state.active[0]?activeBack:null} > 
 		          <Avatar className={this.state.active[0]?classes.activeAvatar:classes.avatar} classes={{root:this.state.hovered[0]&&!this.state.active[0]?classes.hoveredAvatar:null}}>
-		          	<i className="fa fa-arrow-circle-right"></i>
+		          	<i className="fa fa-certificate"></i>
 		          </Avatar>
-		          <ListItemText  	classes={{primary:this.state.active[0]?classes.primaryActive:this.state.hovered[0]?classes.hoveredPrimary:classes.primary,secondary:this.state.active[0]?classes.secondaryActive:this.state.hovered[0]?classes.hoveredSecondary :classes.secondary}}
-		          	 primary="All Restaurants" secondary="100 OPTIONS" 
+		          <ListItemText  	classes={{primary:this.state.active[0]?classes.primaryActive:this.state.hovered[0]?classes.hoveredPrimary:classes.primary,}}
+		          	 primary="Recommended"  
 		          	 />
 		        </ListItem>
 		        <ListItem button onMouseOver={()=>this.hoveredOn(1)} onMouseOut={()=>this.hoveredOff()} onClick={()=>this.listChange(1)} style={this.state.active[1]?activeBack:null}>
 		          <Avatar className={this.state.active[1]?classes.activeAvatar:classes.avatar} classes={{root:this.state.hovered[1]&&!this.state.active[1]?classes.hoveredAvatar:null}}>
-		            <i className="fa fa-fire" ></i>
+		            <Restaurant/>
 		          </Avatar>
 		          <ListItemText 
-		          	classes={{primary:this.state.active[1]?classes.primaryActive:this.state.hovered[1]?classes.hoveredPrimary:classes.primary,secondary:this.state.active[1]?classes.secondaryActive:this.state.hovered[1]?classes.hoveredSecondary :classes.secondary}}
-		          	 primary="Popular" secondary="31 OPTIONS" /></ListItem>
+		          	classes={{primary:this.state.active[1]?classes.primaryActive:this.state.hovered[1]?classes.hoveredPrimary:classes.primary,
+		          	}}
+		          	 primary="Quick Bites" /></ListItem>
 		        <li>
 		          <Divider inset />
 		        </li>
 		        <ListItem button onMouseOver={()=>this.hoveredOn(2)} onMouseOut={()=>this.hoveredOff()} onClick={()=>this.listChange(2)} style={this.state.active[2]?activeBack:null}>
 		          <Avatar className={this.state.active[2]?classes.activeAvatar:classes.avatar} classes={{root:this.state.hovered[2]&&!this.state.active[2]?classes.hoveredAvatar:null}}>
-		          	<i className="fa fa-certificate">
-		          		<i className="fa fa-percent"></i>
-		          	</i>
+		          		<i className="fa fa-leaf"></i>
+		          
 		          </Avatar>
-		          <ListItemText 	classes={{primary:this.state.active[2]?classes.primaryActive:this.state.hovered[2]?classes.hoveredPrimary:classes.primary,secondary:this.state.active[2]?classes.secondaryActive:this.state.hovered[2]?classes.hoveredSecondary :classes.secondary}}
-		          	  primary="Offers around you" secondary="10 OPTIONS" />
+		          <ListItemText 	classes={{primary:this.state.active[2]?classes.primaryActive:this.state.hovered[2]?classes.hoveredPrimary:classes.primary,}}
+		          	  primary="Veg"  />
 		        </ListItem>
 		        <Divider inset component="li" />
+
 		        <ListItem button onMouseOver={()=>this.hoveredOn(3)} onMouseOut={()=>this.hoveredOff()} onClick={()=>this.listChange(3)} style={this.state.active[3]?activeBack:null}>
 		          <Avatar className={this.state.active[3]?classes.activeAvatar:classes.avatar} 
 		          classes={{root:this.state.hovered[3]&&!this.state.active[3]?classes.hoveredAvatar:null}}>
-		          	<i className="fa fa-leaf"></i>
+		          	<i className="fa fa-leaf">
+		          		<i className="fa fa-leaf">
+		          		</i>
+		          	</i>
 		          </Avatar>
-		          <ListItemText 	classes={{primary:this.state.active[3]?classes.primaryActive:this.state.hovered[3]?classes.hoveredPrimary:classes.primary,secondary:this.state.active[3]?classes.secondaryActive:this.state.hovered[3]?classes.hoveredSecondary :classes.secondary}}
+		          <ListItemText 	classes={{primary:this.state.active[3]?classes.primaryActive:this.state.hovered[3]?classes.hoveredPrimary:classes.primary,}}
 		          	 
-		          	 primary="Vegetarian Options" secondary="23 OPTIONS" />
+		          	 primary="Salads"  />
 		        </ListItem>
 		        <Divider inset component="li" />
 		        <ListItem button onMouseOver={()=>this.hoveredOn(4)} onMouseOut={()=>this.hoveredOff()} onClick={()=>this.listChange(4)} style={this.state.active[4]?activeBack:null}>
 		          <Avatar className={this.state.active[4]?classes.activeAvatar:classes.avatar} 
 		          	classes={{root:this.state.hovered[4]&&!this.state.active[4]?classes.hoveredAvatar:null}}>
-		          	<AccountBalanceWallet/>
+		          	<i className="fa fa-beer"/>
 		          </Avatar>
 		          <ListItemText 
-		          		classes={{primary:this.state.active[4]?classes.primaryActive:this.state.hovered[4]?classes.hoveredPrimary:classes.primary,secondary:this.state.active[4]?classes.secondaryActive:this.state.hovered[4]?classes.hoveredSecondary :classes.secondary}}
-		          	 primary="Pocket Friendly" secondary="5 OPTIONS" />
+		          		classes={{primary:this.state.active[4]?classes.primaryActive:this.state.hovered[4]?classes.hoveredPrimary:classes.primary,}}
+		          	 primary="Beverages" />
 		        </ListItem>
 		      </List>
     );
   }
 }
 
-export default withStyles(styles)(SideBar)
+export default withStyles(styles)(SideTab)
 

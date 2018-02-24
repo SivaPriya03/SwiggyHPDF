@@ -180,7 +180,7 @@ const SampleHotels=[{
 	minCost:'Rs.250 for Two',
 },
 ];
-class Restaurants extends Component{
+class Menus extends Component{
 	constructor(props){
 		super(props);
 		this.state={
@@ -282,5 +282,5 @@ class Restaurants extends Component{
   }
 }
 
-export default withStyles(styles)(Restaurants)
+export default withStyles(styles)(Menus)
 

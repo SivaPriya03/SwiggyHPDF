@@ -3,7 +3,7 @@ import PropTypes from 'prop-types';
 import { withStyles } from 'material-ui/styles';
 import Avatar from 'material-ui/Avatar';
 import FlashOn from 'material-ui-icons/FlashOn';
-import NotificationsActive from 'material-ui-icons/NotificationsActive';
+import RoomService from 'material-ui-icons/RoomService';
 import Payment from 'material-ui-icons/Payment';
 
 import 'font-awesome/css/font-awesome.min.css'
@@ -58,7 +58,7 @@ function Footer(props) {
       </div>
       <div className={classes.list} >
         <Avatar className={classes.avatar}>
-          <NotificationsActive />
+          <RoomService />
         </Avatar>
         <h3 className={classes.text}>No Minimum Order</h3>
       </div>

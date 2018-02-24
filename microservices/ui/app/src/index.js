@@ -2,6 +2,8 @@ import React from 'react';
 import ReactDOM from 'react-dom';
 import './index.css';
 import Showrestaurants from './Components/Showrestaurants';
+import Showmenus from './Components/Showmenus';
+
 import Welcome from './Components/Welcome'
 import registerServiceWorker from './registerServiceWorker';
 import {BrowserRouter,Route,Switch} from 'react-router-dom'
@@ -33,7 +35,10 @@ ReactDOM.render(
 	        <div>
 	            <Switch>
 	            	<Route path="/show" component={Showrestaurants} />
+	            	<Route path="/restaurants" component={Showmenus} />
+	            	
 	            	<Route path="/" component={()=> <Welcome Name={'Siva'}/> } />
+	            	
 	            </Switch>
 	        </div>
 	    </BrowserRouter>
