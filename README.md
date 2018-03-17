@@ -1,4 +1,5 @@
-[**React**](https://reactjs.org) is a JavaScript library to create interactive user interfaces. The core library is focussed on the view layer. It is declarative and component based. This quickstart uses [**create-react-app**](https://github.com/facebook/create-react-app) to scaffold a react app with no build configuration.
+[**Overview**]
+  This project is a clone of Swiggy web app which is a online food Ordering System
 
 ## What does this come with?
 
