@@ -1,35 +1,8 @@
-[**Overview**]
+##Overview
   This project is a clone of Swiggy web app which is a online food Ordering System
 
 ## What does this come with?
-
-* React.js Hello World Project
-  * Automatic reloading and bundling
-  * All *create-react-app* feature
-  * react-scripts with inbuilt webpack bundling
-* Deployed with the [**serve**](https://www.npmjs.com/package/serve) package
-* **Dockerfile** (automatically used by Hasura for deployment)
-
-```
-FROM node:8
-
-RUN apt-get update && apt-get install -y build-essential python
-
-#Install deps
-RUN mkdir /app
-COPY app/package.json /app/package.json
-RUN cd /app && npm install
-RUN npm -g install serve
-
-#Add all source code
-ADD app /app/
-RUN cd /app && npm run build
-
-WORKDIR /app
-
-#Default command
-CMD ["serve", "-s", "build", "-p", "8080"]
-```
+  Checkout the original website of Swiggy [https://www.swiggy.com/]
 
 ## Deployment instructions
 
