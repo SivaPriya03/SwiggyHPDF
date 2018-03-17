@@ -1,6 +1,6 @@
 ## Overview
   This project is a clone of Swiggy web app which is a online food Ordering System
-  Checkout the original website of [Swiggy] (https://www.swiggy.com/)
+  Checkout the original website of [Swiggy](https://www.swiggy.com/)
 ## What does it do?
   It shows a list of restaurants and menus according to the choice of user. User can add their food in the cart and also view the items in Cart.Login and signup forms are also implemented. 
 ## Requirements
